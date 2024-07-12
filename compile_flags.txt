@@ -1,0 +1,5 @@
+-I
+/home/magnus/.elan/toolchains/stable/include
+-fstack-clash-protection
+-fPIC
+-fvisibility=hidden
