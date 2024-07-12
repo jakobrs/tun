@@ -67,13 +67,13 @@ def main : IO Unit := do
   let sender <- IO.asTask $ forever do
     let buf := ByteArray.mkEmpty 1500
     let buf <- tun.read buf
-    println! "sending s{buf.size} bytes"
+    println! "sending {buf.size} bytes"
     sock.write buf
 
   let receiver <- IO.asTask $ forever do
     let buf := ByteArray.mkEmpty 1500
     let buf <- sock.read buf
-    println! "received s{buf.size} bytes"
+    println! "received {buf.size} bytes"
     tun.write buf
 
   let _ := sender.get
